@@ -1,9 +1,11 @@
-function App() {
-  const [count, setCount] = useState(0)
+import Landing from "./components/Landing.jsx"
+import Nav from "./components/Nav.jsx"
 
+function App() {
   return (
     <>
-      
+      <Nav />
+      <Landing/>
     </>
   )
 }
