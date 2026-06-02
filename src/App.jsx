@@ -4,6 +4,8 @@ import Nav from "./components/Nav.jsx"
 import Banner from "./components/Banner.jsx"
 import Choose from "./components/Choose.jsx"
 import Testimonials from "./components/Testimonials.jsx"
+import Download from "./components/Download.jsx"
+import Footer from "./components/Footer.jsx"
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
       <Banner/>
       <Choose/>
       <Testimonials/>
+      <Download/>
+      <Footer/>
     </>
   )
 }
