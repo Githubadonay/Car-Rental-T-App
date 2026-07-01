@@ -2,7 +2,7 @@ import React from "react";
 import Feature1 from "../assets/feature-1.png";
 import Feature2 from "../assets/feature-2.png";
 import Feature3 from "../assets/feature-3.png";
-import Feature from "./ui/feature";
+import Feature from "./ui/Feature.jsx";
 
 const Features = () => {
   return (
