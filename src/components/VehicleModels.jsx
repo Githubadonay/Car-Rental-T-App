@@ -5,7 +5,12 @@ import { useState } from "react";
 import Model from "./ui/Model.jsx";
 import ModelSkeleton from "./ui/ModelSkeleton.jsx";
 
-const VehicleModels = ({ carModels, setCarModels, setBookingOpen }) => {
+const VehicleModels = ({
+  carModels,
+  setCarModels,
+  setBookingOpen,
+  setSelectedModel,
+}) => {
   const [sort, setSort] = useState("");
 
   function sortModels() {
@@ -85,7 +90,14 @@ const VehicleModels = ({ carModels, setCarModels, setBookingOpen }) => {
           </div>
           <div className="models__list">
             {carModels.length > 0
-              ? carModels.map((model) => <Model model={model} key={model.id} setBookingOpen={setBookingOpen} />)
+              ? carModels.map((model) => (
+                  <Model
+                    model={model}
+                    key={model.id}
+                    setBookingOpen={setBookingOpen}
+                    setSelectedModel={setSelectedModel}
+                  />
+                ))
               : new Array(20)
                   .fill(0)
                   .map((_, index) => <ModelSkeleton key={index} />)}

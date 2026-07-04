@@ -9,6 +9,7 @@ import { useState } from "react";
 const Models = () => {
   const [carModels, setCarModels] = useState([]);
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [selectedModel, setSelectedModel] = useState("");
 
   async function fetchModels() {
     const { data } = await axios.get(
@@ -28,12 +29,19 @@ const Models = () => {
 
   return (
     <>
-      <Booking carModels={carModels} bookingOpen={bookingOpen} />
+      <Booking
+        carModels={carModels}
+        bookingOpen={bookingOpen}
+        setBookingOpen={setBookingOpen}
+        setSelectedModel={setSelectedModel}
+        selectedModel={selectedModel}
+      />
       <ModelHero />
       <VehicleModels
         carModels={carModels}
         setCarModels={setCarModels}
         setBookingOpen={setBookingOpen}
+        setSelectedModel={setSelectedModel}
       />
     </>
   );

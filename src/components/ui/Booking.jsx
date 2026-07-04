@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
+import { useState } from "react";
 import {
   faCalendarAlt,
   faCar,
@@ -7,11 +8,20 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 
-const Booking = ({ carModels, bookingOpen }) => {
+const Booking = ({
+  carModels,
+  bookingOpen,
+  setBookingOpen,
+  setSelectedModel,
+  selectedModel,
+}) => {
   return (
     <div className={`booking ${bookingOpen && "booking-open"}`}>
       <div className="booking__container">
-        <button className="booking__close">
+        <button
+          className="booking__close"
+          onClick={() => setBookingOpen(false)}
+        >
           <FontAwesomeIcon icon={faTimes} />
         </button>
         <h3 className="booking__title">Book a Car</h3>
@@ -23,10 +33,19 @@ const Booking = ({ carModels, bookingOpen }) => {
                 select Your Model<span className="required">*</span>
               </span>
             </label>
-            <select className="form__item__select">
+            <select
+              className="form__item__select"
+              value={selectedModel}
+              onChange={(e) => setSelectedModel(e.target.value)}
+            >
               <option value="" disabled>
                 Select
               </option>
+              {carModels.map((model) => (
+                <option value={`${model.make} ${model.model}`} key={model.id}>
+                  {model.make} {model.model}
+                </option>
+              ))}
             </select>
           </div>
           <div className="form__item">
