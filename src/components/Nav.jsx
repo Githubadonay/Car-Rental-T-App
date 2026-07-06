@@ -2,6 +2,7 @@ import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useState } from "react";
 import NavLogo from "../assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -10,33 +11,35 @@ const Nav = () => {
     <>
       <nav>
         <div className="nav__container">
-          <a href="#" className="nav__img__wrapper">
+          <a href="/" className="nav__img__wrapper">
             <img src={NavLogo} alt="" className="nav__img" />
           </a>
 
           <div className="nav__links">
-            <a href="#" className="nav__link">
+            <Link to="/" className="nav__link">
               Home
-            </a>
-            <a href="#" className="nav__link">
+            </Link>
+            <Link to="/models" className="nav__link">
               Vehicle Models
-            </a>
-            <a href="#" className="nav__link disabled">
+            </Link>
+            <Link to="#" className="nav__link disabled">
               Testimonials
-            </a>
-            <a href="#" className="nav__link disabled">
+            </Link>
+            <Link to="#" className="nav__link disabled">
               Our Team
-            </a>
-            <a href="#" className="nav__link disabled">
+            </Link>
+            <Link to="#" className="nav__link disabled">
               Contact
-            </a>
+            </Link>
           </div>
 
           <div className="nav__btns">
-            <a href="#" className="nav__link disabled">
+            <Link to="/signin" className="nav__link disabled">
               Sign in
-            </a>
-            <button className="nav__btns__register disabled">Register</button>
+            </Link>
+            <Link to="/register" className="nav__btns__register disabled">
+              Register
+            </Link>
           </div>
           <button className="nav__menu" onClick={() => setMenuOpen(true)}>
             <FontAwesomeIcon icon={faBars} />
@@ -49,21 +52,21 @@ const Nav = () => {
           <FontAwesomeIcon icon={faTimes} />
         </button>
         <div className="menu__links">
-          <a href="#" className="menu__link" onClick={() => setMenuOpen(false)} >
+          <Link to="/" className="menu__link" onClick={() => setMenuOpen(false)} >
             Home
-          </a>
-          <a href="#" className="menu__link" onClick={() => setMenuOpen(false)}>
+          </Link>
+          <Link to="/models" className="menu__link" onClick={() => setMenuOpen(false)}>
             Vehicle Models
-          </a>
-          <a href="#" className="menu__link disabled" onClick={() => setMenuOpen(false)}>
+          </Link>
+          <Link to="#" className="menu__link disabled" onClick={() => setMenuOpen(false)}>
             Testimonials
-          </a>
-          <a href="#" className="menu__link disabled" onClick={() => setMenuOpen(false)}>
+          </Link>
+          <Link to="#" className="menu__link disabled" onClick={() => setMenuOpen(false)}>
             Our Team
-          </a>
-          <a href="#" className="menu__link disabled" onClick={() => setMenuOpen(false)}>
+          </Link>
+          <Link to="#" className="menu__link disabled" onClick={() => setMenuOpen(false)}>
             Contact
-          </a>
+          </Link>
         </div>
       </nav>
     </>

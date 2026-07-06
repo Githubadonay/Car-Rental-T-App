@@ -5,10 +5,12 @@ import Booking from "../components/ui/Booking";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import SuccessPopup from "../components/ui/SuccessPopup";
 
 const Models = () => {
   const [carModels, setCarModels] = useState([]);
   const [bookingOpen, setBookingOpen] = useState(false);
+  const [successOpen, setSuccessOpen] = useState(false);
   const [selectedModel, setSelectedModel] = useState("");
 
   async function fetchModels() {
@@ -20,7 +22,7 @@ const Models = () => {
   }
 
   useEffect(() => {
-    console.log("Booking Open:", bookingOpen);
+    // console.log("Booking Open:", bookingOpen);
   }, [bookingOpen]);
 
   useEffect(() => {
@@ -29,12 +31,14 @@ const Models = () => {
 
   return (
     <>
+      <SuccessPopup successOpen={successOpen} />
       <Booking
         carModels={carModels}
         bookingOpen={bookingOpen}
         setBookingOpen={setBookingOpen}
         setSelectedModel={setSelectedModel}
         selectedModel={selectedModel}
+        setSuccessOpen={setSuccessOpen}
       />
       <ModelHero />
       <VehicleModels

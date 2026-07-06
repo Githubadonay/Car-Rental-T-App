@@ -6,6 +6,7 @@ import {
   faCar,
   faLocationDot,
   faTimes,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 
 const Booking = ({
@@ -14,7 +15,27 @@ const Booking = ({
   setBookingOpen,
   setSelectedModel,
   selectedModel,
+  setSuccessOpen,
 }) => {
+  const [bookingLoading, setBookingLoading] = useState(false);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    setBookingLoading(true);
+
+    setTimeout(() => {
+      setBookingLoading(false);
+      setBookingOpen(false);
+      setSuccessOpen(true);
+    }, 2000);
+
+    setTimeout(() => {
+      setSuccessOpen(false);
+    }, 6000);
+    console.log("form submitted");
+  }
+
   return (
     <div className={`booking ${bookingOpen && "booking-open"}`}>
       <div className="booking__container">
@@ -25,7 +46,10 @@ const Booking = ({
           <FontAwesomeIcon icon={faTimes} />
         </button>
         <h3 className="booking__title">Book a Car</h3>
-        <form className="booking__form">
+        <form
+          className="booking__form"
+          onSubmit={(event) => handleSubmit(event)}
+        >
           <div className="form__item">
             <label className="form__item__label">
               <FontAwesomeIcon icon={faCar} />
@@ -103,7 +127,16 @@ const Booking = ({
             <input type="date" className="form__item__input" />
           </div>
           <div className="form__item">
-            <button className="form__item__submit">Book Now</button>
+            <button className="form__item__submit">
+              {bookingLoading ? (
+                <FontAwesomeIcon
+                  icon={faSpinner}
+                  className="form__item__submit__loading"
+                />
+              ) : (
+                "Book Now"
+              )}
+            </button>
           </div>
         </form>
       </div>

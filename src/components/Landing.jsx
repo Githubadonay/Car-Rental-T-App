@@ -3,6 +3,7 @@ import HeaderBg from "../assets/header-bg.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAngleRight, faArrowRight, faCircleCheck, faGreaterThan } from "@fortawesome/free-solid-svg-icons";
 import HeaderCar from "../assets/header-car.png"
+import { Link as Links } from "react-router-dom";
 
 const Landing = () => {
   return (
@@ -21,18 +22,22 @@ const Landing = () => {
               flexible pick-up options and much more.
             </p>
             <div className="header__text__btns">
+              <Links to="/models">
                 <button className="header__text__btn header__text__book">
                     <span className="header__text__btn__span">
                         book Ride
                     </span>
                     <FontAwesomeIcon icon={faCircleCheck}/>
                 </button>
+                </Links>
+                <Links to="/models">
                 <button className="header__text__btn header__text__learn">
                     <span className="header__text__btn__span">
                         Learn more
                     </span>
                     <FontAwesomeIcon icon={faAngleRight} className="header__text__btn__icon"/>
                 </button>
+                </Links>
             </div>
           </div>
           <figure className="header__img__wrapper">
